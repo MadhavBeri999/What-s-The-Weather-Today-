@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1
+        style="text-align: center; font-size: 60px; font-weight: 300 ; font-style: italic ; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; padding: 12px 22px; color: #777;">
+        WEATHER APP <i class="fa-solid fa-cloud-sun-rain fa-xl" style="color: rgb(255, 212, 59);"></i></h1>
+
+    <div
+        style="display: flex;  padding: 12px 22px; align-items: center; justify-content: center ;background-color: #555; height: fit-content; width: 100%; justify-content: center; gap: 25px;">
+
+        <form id="for"
+            style="padding: 12px 22px; gap: 10px; display: flex; flex-direction: column; align-items: center; justify-content: space-around; ;">
+            <label style="padding: 12px 22px ;">Pls Select Your State </label>
+            <input style="padding: 12px 22px; display: block; border: 2px solid white; gap: 10px;" type="text"
+                placeholder="Punjab" name="State">
+
+            <label style="padding: 12px 22px;">Pls Select Your Appropriate City </label>
+            <select name="City" style="padding: 12px 22px; display: block;">
+                <option value="Ludhiana">Ludhiana</option>
+                <option value="Patiala">Patiala</option>
+                <option value="Mohali">Mohali</option>
+                <option value="Amritsar">Amritsar</option>
+                <option value="Jalandhar">Jalandhar</option>
+            </select>
+            <label></label>
+
+            <button id="btn" type="submit"
+                style="padding: 12px 22px; display: block; background-color: lightskyblue ; color: black; font-size: normal; font-weight:bold ; cursor: pointer; border: 4px solid #666;">Check
+                Weather
+                Now!!</button>
+            <p id="weather-error" role="alert" hidden></p>
+        </form>
+        <div id="weather-results" class="weather-grid" hidden>
+
+            <div style="height: 150px; width: 150px; ; ">
+
+                <div class="weather-card"
+                    style="height: 100%; width: 100%; top: 0; left: 0;background-image:url('https://plus.unsplash.com/premium_photo-1669809948017-518b5d800d73?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D') ; background-size: cover; background-repeat: no-repeat; overflow: hidden; border-radius: 10px; display: flex; flex-direction: column;align-items: center;justify-content: space-around;padding: 5px;  ">
+
+                    <h3
+                        style="text-align: center; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: 300;font-size: 20px;letter-spacing: 1px;">
+                        Temperature</h3>
+
+                    <div id="temperature-value" class="weather-value"
+                        style="height: 75px; width: 75px; display: flex; align-items: center; justify-content: center; font-weight: 300; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 40px;">
+                        Box</div>
+
+                </div>
+            </div>
+            <div style="height: 150px; width: 150px; ;">
+
+
+                <div class="weather-card"
+                    style="height: 100%; width: 100%; top: 0; left: 0;background-image:url('https://images.unsplash.com/photo-1664260151149-016e94112a88?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D') ; background-size: cover; background-repeat: no-repeat; overflow: hidden; border-radius: 10px; display: flex; flex-direction: column;align-items: center;justify-content: space-around;padding: 5px;  ">
+
+                    <h3
+                        style="text-align: center; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: 300;font-size: 20px;letter-spacing: 1px;">
+                        Feels Like</h3>
+
+                    <div id="feels-value" class="weather-value"
+                        style="height: 75px; width: 75px; display: flex; align-items: center; justify-content: center; font-weight: 300; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 40px;">
+                        Box</div>
+
+                </div>
+            </div>
+            <div style="height: 150px; width: 150px; ;">
+
+
+
+                <div class="weather-card"
+                    style="height: 100%; width: 100%; top: 0; left: 0;background-image:url('https://images.unsplash.com/photo-1534088568595-a066f410bcda?q=80&w=751&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D') ; background-size: cover; background-repeat: no-repeat; overflow: hidden; border-radius: 10px; display: flex; flex-direction: column;align-items: center;justify-content: space-around;padding: 5px;  ">
+
+                    <h3
+                        style="text-align: center; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: 300;font-size: 20px;letter-spacing: 1px;">
+                        Rain</h3>
+
+                    <div id="rain-value" class="weather-value"
+                        style="height: 75px; width: 75px; display: flex; align-items: center; justify-content: center; font-weight: 300; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 40px;">
+                        Box</div>
+
+                </div>
+            </div>
+            <div style="height: 150px; width: 150px; ;">
+                <div class="weather-card"
+                    style="height: 100%; width: 100%; top: 0; left: 0;background-image:url('https://images.unsplash.com/photo-1778691158068-e9b8b946a75a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D') ; background-size: cover; background-repeat: no-repeat; overflow: hidden; border-radius: 10px; display: flex; flex-direction: column;align-items: center;justify-content: space-around;padding: 5px;  ">
+
+                    <h3
+                        style="text-align: center; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: 300;font-size: 20px;letter-spacing: 1px;">
+                        Wind</h3>
+
+                    <div id="wind-value" class="weather-value"
+                        style="height: 75px; width: 75px; display: flex; align-items: center; justify-content: center; font-weight: 300; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 40px;">
+                        Box</div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <script type="module" src="script.js"></script>
+</body>
+
+</html>
